@@ -1,0 +1,20 @@
+h1 Swink
+- if @loggedout == false
+  form class='adder' action='/links/new' method='post'
+    input type='url' name='link' id='link' placeholder='Paste link here...'
+    input type='text' name='tag' id='tag' placeholder='Add tag here (Optional)'
+    label for='secret' Secret?
+    input id='secret' name='secret' type='checkbox' value='on'
+    button type='submit' Save
+  a href='/links' My Links
+  form action='/logout' method='post'
+        button type='submit' Logout
+- if @loggedout
+  form action='/login' method='post'
+    label for='username' Username
+    input type='text' id='username' name='username' placeholder='Username...'
+    label for='password' Password
+    input type='password' id='password' name='password' placeholder='Password...'
+    button type='submit' Login!
+  a href='/register' Register
+script src='./js/index.js/'
