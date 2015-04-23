@@ -19,7 +19,11 @@ class User
   end
 
   def self.register(params, app)
-    User.create(username: params['username'],
-                password: params['password'])
+    if params['password'] == params['confirm-password']
+      User.create(username: params['username'],
+                  password: params['password'])
+    else
+      app.redirect '/404'
+    end
   end
 end

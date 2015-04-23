@@ -1,5 +1,5 @@
-h1 Swink
 - if @loggedout == false
+  h1 id='swink' Swink
   form class='adder' action='/links/new' method='post'
     input type='url' name='link' id='link' placeholder='Paste link here...'
     input type='text' name='tag' id='tag' placeholder='Add tag here (Optional)'
@@ -10,11 +10,53 @@ h1 Swink
   form action='/logout' method='post'
         button type='submit' Logout
 - if @loggedout
-  form action='/login' method='post'
-    label for='username' Username
-    input type='text' id='username' name='username' placeholder='Username...'
-    label for='password' Password
-    input type='password' id='password' name='password' placeholder='Password...'
-    button type='submit' Login!
-  a href='/register' Register
+  .container
+    .row.vertical-center-row
+      h1 id='swink' Swink
+      .col-md-6.col-md-offset-3
+        .panel.panel-login
+          .panel-heading
+            .row
+              .col-xs-6
+                a#login-form-link.active href='#'  Login
+              .col-xs-6
+                a#register-form-link href='#'  Register
+            hr/
+          .panel-body
+            .row
+              .col-lg-12
+                form#login-form action='/login' method='post' role='form' style=('display: block;')
+                  .form-group
+                    input#username.form-control name='username' placeholder='Username' tabindex='1' type='text' value='' /
+                  .form-group
+                    input#password.form-control name='password' placeholder='Password' tabindex='2' type='password' /
+                  .form-group
+                    .row
+                      .col-sm-6.col-sm-offset-3
+                        input#login-submit.form-control.btn.btn-login name='login-submit' tabindex='4' type='submit' value=('Log In') /
+                  .form-group
+                    .row
+                      .col-lg-12
+                        .text-center
+                          a.forgot-password href='http://phpoll.com/recover' tabindex='5'  Forgot Password?
+                form#register-form action='/register' method='post' role='form' style=('display: none;')
+                  .form-group
+                    input#username.form-control name='username' placeholder='Username' tabindex='1' type='text' value='' /
+                  .form-group
+                    input#password.form-control name='password' placeholder='Password' tabindex='2' type='password' /
+                  .form-group
+                    input#confirm-password.form-control name='confirm-password' placeholder=('Confirm Password') tabindex='2' type='password' /
+                  .form-group
+                    .row
+                      .col-sm-6.col-sm-offset-3
+                        input#register-submit.form-control.btn.btn-register name='register-submit' tabindex='4' type='submit' value=('Register Now') /
+
+  /form action='/login' method='post'
+    /label for='username' Username
+    /input type='text' id='username' name='username' placeholder='Username...'
+    /label for='password' Password
+    /input type='password' id='password' name='password' placeholder='Password...'
+    /button type='submit' Login!
+  /a href='/register' Register
 script src='./js/index.js/'
+script src='./js/tabbed.js/'

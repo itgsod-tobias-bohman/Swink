@@ -32,10 +32,6 @@ class App < Sinatra::Base
     redirect '/'
   end
 
-  get '/register' do
-    slim :register
-  end
-
   post '/register' do
     user = User.register(params, self)
     redirect '/'
