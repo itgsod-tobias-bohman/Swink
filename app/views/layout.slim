@@ -20,20 +20,29 @@ html class='full'
         <div class="container">
           <div class="row vertical-center-row">
             <h1 id="swink">Swink</h1>
-            <h2>Saved Links</h2>
             <a href="/">Back to front page</a>
-              <div>
-                <ul>
-                {{#each this}}
-                  <li>
-                    <a style="display: inline-block" href="{{link}}">{{title}}</a>
-                    <p style="display: inline-block">{{tag}}</p>
-                    <form style="display: inline-block" class="remover" action="links/{{id}}/remove" method="post"><button class="btn btn-danger" type="submit"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></form>
-                    <a style="display: inline-block" href="https://www.facebook.com/sharer/sharer.php?u={{link}}" onclick="window.open(this.href, 'mywin', 'left=20,top=20,width=500,height=250,toolbar=1,resizable=0'); return false;">Share on Facebook</a>
-                  </li>
-                {{/each}}
-                </ul>
+            <h2>Saved Links</h2>
+              <div class="panel-body">
+                <input type="text" class="form-control" placeholder="Filter by Title/Tag" />
               </div>
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>Title</th>
+                    <th>Tag</th>
+                    <th></th>
+                    <th>Share</th>
+                  </tr>
+                </thead>
+                <tbody>
+                {{#each this}}
+                  <tr>
+                    <td><a style="display: inline-block" href="{{link}}">{{title}}</a></td>
+                    <td><p style="display: inline-block">{{tag}}</p></td>
+                    <td><form style="display: inline-block" class="remover" action="links/{{id}}/remove" method="post"><button class="btn btn-danger" type="submit"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></form></td>
+                    <td><a style="display: inline-block" href="https://www.facebook.com/sharer/sharer.php?u={{link}}" onclick="window.open(this.href, 'mywin', 'left=20,top=20,width=500,height=250,toolbar=1,resizable=0'); return false;">Share on Facebook</a></td>
+                  </tr>
+                {{/each}}
           </div>
         </div>
   body
