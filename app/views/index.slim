@@ -1,14 +1,17 @@
 - if @loggedout == false
-  h1 id='swink' Swink
-  form class='adder' action='/links/new' method='post'
-    input type='url' name='link' id='link' placeholder='Paste link here...'
-    input type='text' name='tag' id='tag' placeholder='Add tag here (Optional)'
-    label for='secret' Secret?
-    input id='secret' name='secret' type='checkbox' value='on'
-    button type='submit' Save
-  a href='/links' My Links
-  form action='/logout' method='post'
-        button type='submit' Logout
+  .container
+    .row.vertical-center-row
+      h1 id='swink' Swink
+      .col-md-6.col-md-offset-3
+        form class='adder' action='/links/new' method='post'
+          input class='input-text' type='url' name='link' id='link' placeholder='Paste link here...'
+          input class='input-text' type='text' name='tag' id='tag' placeholder='Add tag here (Optional)'
+          label class='label-text' for='secret' Secret?
+          input class='input-text' id='secret' name='secret' type='checkbox' value='on'
+          button class='btn btn-success' type='submit' Save
+        a href='/links' My Links
+        form action='/logout' method='post'
+          button class='btn btn-danger' type='submit' Logout
 - if @loggedout
   .container
     .row.vertical-center-row

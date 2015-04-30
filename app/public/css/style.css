@@ -117,12 +117,26 @@ body {
   text-transform: uppercase;
   border-color: #1CB94A;
 }
+
 .btn-register:hover,
 .btn-register:focus {
   color: #fff;
   background-color: #1CA347;
   border-color: #1CA347;
 }
+
 .clickable{
         cursor: pointer;
+}
+
+.input-text{
+  color: #000;
+}
+
+.label-text{
+  color: #fff;
+}
+
+#link{
+  width: 100%;
 }
