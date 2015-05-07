@@ -4,7 +4,7 @@
       h1 id='swink' Swink
       .col-md-6.col-md-offset-3
         form class='adder' action='/links/new' method='post'
-          input class='form-control input-text' type='url' name='link' id='link' placeholder='Paste link here...'
+          input class='form-control input-text' type='url' name='link' id='link' placeholder='Paste link here...' required=''
           input class='form-control input-text' type='text' name='tag' id='tag' placeholder='Add tag here (Optional)'
           label class='label-text' for='secret' Secret?
           input class='input-box' id='secret' name='secret' type='checkbox' value='on'
@@ -31,9 +31,9 @@
               .col-lg-12
                 form#login-form action='/login' method='post' role='form' style=('display: block;')
                   .form-group
-                    input#username.form-control name='username' placeholder='Username' tabindex='1' type='text' value='' /
+                    input#username.form-control name='username' placeholder='Username' tabindex='1' type='text' value='' required='' /
                   .form-group
-                    input#password.form-control name='password' placeholder='Password' tabindex='2' type='password' /
+                    input#password.form-control name='password' placeholder='Password' tabindex='2' type='password' required='' /
                   .form-group
                     .row
                       .col-sm-6.col-sm-offset-3
@@ -45,13 +45,13 @@
                           a.forgot-password href='/forgot_password' tabindex='5'  Forgot Password?
                 form#register-form action='/register' method='post' role='form' style=('display: none;')
                   .form-group
-                    input#username.form-control name='username' placeholder='Username' tabindex='1' type='text' value='' /
+                    input#username.form-control name='username' placeholder='Username' tabindex='1' type='text' value='' required='' /
                   .form-group
-                    input#email.form-control name='email' placeholder=('Email Address') tabindex='1' type='email' value='' /
+                    input#email.form-control name='email' placeholder=('Email Address(optional)') tabindex='1' type='email' value='' /
                   .form-group
-                    input#password.form-control name='password' placeholder='Password' tabindex='2' type='password' /
+                    input#password.form-control name='password' placeholder='Password' tabindex='2' type='password' required='' /
                   .form-group
-                    input#confirm-password.form-control name='confirm-password' placeholder=('Confirm Password') tabindex='2' type='password' /
+                    input#confirm-password.form-control name='confirm-password' placeholder=('Confirm Password') tabindex='2' type='password' required=''/
                   .form-group
                     .row
                       .col-sm-6.col-sm-offset-3
