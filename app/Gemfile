@@ -2,7 +2,7 @@
 source 'https://rubygems.org'
 
 # Ttell heroku and bundler which version of ruby to use
-ruby '2.1.5'
+ruby '2.1.4'
 
 # Gems used by all environments (development, production & test)
 gem 'sinatra'
@@ -13,7 +13,8 @@ gem 'slim'
 gem 'tilt', '~> 1.4.1' #temporary fix
 gem 'rerun'
 gem 'racksh'
-gem 'nokogiri'
+gem 'metainspector'
+gem 'thin'
 
 # Used during local development (on your own machine)
 group :development do

@@ -2,6 +2,7 @@ class App < Sinatra::Base
   require 'open-uri'
 
   enable :sessions
+  use Rack::Deflater
 
   before do
     @user = User.get(session[:user]) if session[:user]
@@ -49,8 +50,8 @@ class App < Sinatra::Base
   end
 
   post '/links/new' do
-    page = Nokogiri::HTML(open(params['link']))
-    title = page.css("title").text
+    page = MetaInspector.new(params['link'])
+    title = page.title
     link = Link.addlink(params, @user, title, self)
     redirect back
   end
