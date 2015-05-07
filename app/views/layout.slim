@@ -14,7 +14,6 @@ html class='full'
     script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js'
     script src='https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.min.js'
     script type='text/javascript' src='./js/noty/packaged/jquery.noty.packaged.min.js'
-    script type='text/javascript' src='./js/jquery.livefilter.min.js'
     script src='./js/script.js/'
 
     script id='links-template' type='text/x-handlebars-template'
@@ -46,7 +45,7 @@ html class='full'
                       <a alt="share to reddit" class="btn btn-social-icon btn-reddit" style="display: inline-block" href="http://www.reddit.com/submit?url={{link}}&title={{title}}" target="_blank"><i class="fa fa-reddit"></i></a>
                       <a alt="share to twitter" class="btn btn-social-icon btn-twitter" style="display: inline-block" href="https://twitter.com/intent/tweet?text={{link}}&url=myurl" onclick="window.open(this.href, 'mywin', 'left=20,top=20,width=500,height=250,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter"></i></a>
                     </td>
-                    <td class="table-remove"><form style="display: inline-block" class="remover" action="links/{{id}}/remove" method="post"><button class="btn btn-danger" type="submit"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></form></td>
+                    <td class="table-remove"><form style="display: inline-block" class="remover" action="links/{{id}}/remove" method="post"><button class="btn btn-social-icon btn-pinterest" type="submit"><i class="fa fa-trash"></i></button></form></td>
                   </tr>
                 {{/each}}
           </div>

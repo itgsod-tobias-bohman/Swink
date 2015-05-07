@@ -5,13 +5,14 @@
       .col-md-6.col-md-offset-3
         form class='adder' action='/links/new' method='post'
           input class='form-control input-text' type='url' name='link' id='link' placeholder='Paste link here...'
-          input class='input-text' type='text' name='tag' id='tag' placeholder='Add tag here (Optional)'
+          input class='form-control input-text' type='text' name='tag' id='tag' placeholder='Add tag here (Optional)'
           label class='label-text' for='secret' Secret?
-          input class='input-text' id='secret' name='secret' type='checkbox' value='on'
+          input class='input-box' id='secret' name='secret' type='checkbox' value='on'
+          p style='display: inline-block'
           button class='btn btn-success' type='submit' Save
         a href='/links' My Links
         form action='/logout' method='post'
-          button class='btn btn-danger' type='submit' Logout
+          button class='btn btn-danger logout' type='submit' Logout
 - if @loggedout
   .container
     .row.vertical-center-row
