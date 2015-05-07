@@ -1,5 +1,4 @@
 class App < Sinatra::Base
-  require 'open-uri'
 
   enable :sessions
   use Rack::Deflater

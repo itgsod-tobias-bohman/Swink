@@ -172,7 +172,6 @@ DEPENDENCIES
   dm-sqlite-adapter
   dm-timestamps
   metainspector
-  nokogiri
   racksh
   rerun
   rspec
