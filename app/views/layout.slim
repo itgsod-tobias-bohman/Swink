@@ -25,22 +25,22 @@ html class='full'
               <div class="panel-body">
                 <input type="text" class="form-control" placeholder="Filter by Title/Tag" />
               </div>
-              <table class="table table-hover">
+              <table class="table">
                 <thead>
                   <tr>
                     <th>Title</th>
                     <th>Tag</th>
-                    <th></th>
                     <th>Share</th>
+                    <th></th>
                   </tr>
                 </thead>
                 <tbody>
                 {{#each this}}
                   <tr>
-                    <td><a style="display: inline-block" href="{{link}}">{{title}}</a></td>
-                    <td><p style="display: inline-block">{{tag}}</p></td>
-                    <td><form style="display: inline-block" class="remover" action="links/{{id}}/remove" method="post"><button class="btn btn-danger" type="submit"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></form></td>
-                    <td><a style="display: inline-block" href="https://www.facebook.com/sharer/sharer.php?u={{link}}" onclick="window.open(this.href, 'mywin', 'left=20,top=20,width=500,height=250,toolbar=1,resizable=0'); return false;">Share on Facebook</a></td>
+                    <td class="table-title"><a style="display: inline-block" href="{{link}}">{{title}}</a></td>
+                    <td class="table-tag"><p style="display: inline-block">{{tag}}</p></td>
+                    <td class="table-share"><a style="display: inline-block" href="https://www.facebook.com/sharer/sharer.php?u={{link}}" onclick="window.open(this.href, 'mywin', 'left=20,top=20,width=500,height=250,toolbar=1,resizable=0'); return false;">Facebook</a></td>
+                    <td class="table-remove"><form style="display: inline-block" class="remover" action="links/{{id}}/remove" method="post"><button class="btn btn-danger" type="submit"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></form></td>
                   </tr>
                 {{/each}}
           </div>

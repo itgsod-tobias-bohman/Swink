@@ -140,3 +140,16 @@ body {
 #link{
   width: 100%;
 }
+
+.table-title{
+  width:40%;
+}
+.table-tag{
+  width:40%;
+}
+.table-remove{
+  width:10%;
+}
+.table-share{
+  width:10%;
+}

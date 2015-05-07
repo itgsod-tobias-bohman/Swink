@@ -17,7 +17,7 @@
       data: form.serialize(),
       success: function() {
         var n;
-        form.parent().remove();
+        form.parent().parent().remove();
         return n = noty({
           text: 'Link removed!'
         });

@@ -11,7 +11,7 @@ removeLink = (form, event) ->
     method: form.attr('method'),
     data: form.serialize(),
     success: ->
-      form.parent().remove()
+      form.parent().parent().remove()
       n = noty(text: 'Link removed!')
     event.preventDefault()
 
