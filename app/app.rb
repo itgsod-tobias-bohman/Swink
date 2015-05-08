@@ -19,6 +19,11 @@ class App < Sinatra::Base
     end
     slim :index
   end
+
+  not_found do
+    status 404
+    slim :oops
+  end
   #################
   # USER SPECIFIC #
   #################
@@ -35,6 +40,14 @@ class App < Sinatra::Base
   post '/register' do
     user = User.register(params, self)
     redirect '/'
+  end
+
+  get '/settings' do
+    slim :settings
+  end
+
+  get '/forgot_password' do
+    slim :forgotpassword
   end
   #################
   # LINK SPECIFIC #
