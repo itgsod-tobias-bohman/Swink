@@ -168,3 +168,7 @@ body {
   margin-bottom: auto;
   margin-top: auto;
 }
+#forgot_password{
+  margin-left: 25%;
+  width: 50%;
+}
