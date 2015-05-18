@@ -33,6 +33,7 @@ html class='full'
     script type='text/javascript' src='./js/noty/packaged/jquery.noty.packaged.min.js'
     script type='text/javascript' src='./js/pace.min.js'
     script type='text/javascript' src='./js/offline.min.js'
+    script src='https://cdnjs.cloudflare.com/ajax/libs/list.js/1.1.1/list.min.js'
     script src='./js/script.js/'
 
     script id='links-template' type='text/x-handlebars-template'
@@ -50,9 +51,9 @@ html class='full'
             <h1 id="swink">Swink</h1>
             <a href="/"><i class="fa fa-arrow-left"></i> Back to front page</a>
             <h2>Saved Links</h2>
-              <div class="panel-body">
-                <input type="text" class="form-control" placeholder="Filter by Title/Tag" />
-              </div>
+            <div id="links">
+              <input class="search input-text" placeholder="Search" />
+              <button class="sort input-text" data-sort="table-tag">Sort by Tag</button>
               <table class="table">
                 <thead>
                   <tr>
@@ -62,7 +63,7 @@ html class='full'
                     <th></th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody class="list">
                 {{#each this}}
                   <tr>
                     <td class="table-title"><a style="display: inline-block" href="{{link}}">{{title}}</a></td>

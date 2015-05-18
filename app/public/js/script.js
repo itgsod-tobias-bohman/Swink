@@ -26,3 +26,9 @@ $.noty.defaults = {
     },
     buttons: false // an array of buttons
 };
+$(document).ready(function(){
+    var options = {
+        valueNames: [ 'table-title', 'table-tag' ]
+    };
+    var linkList = new List('links', options);
+});
