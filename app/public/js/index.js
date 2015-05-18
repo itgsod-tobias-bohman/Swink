@@ -15,7 +15,6 @@
       method: form.attr('method'),
       data: form.serialize(),
       success: function() {
-        var n;
         console.log('Added');
         $('#link').val('');
         $('#tag').val('');
