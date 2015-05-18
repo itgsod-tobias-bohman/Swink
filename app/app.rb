@@ -69,7 +69,7 @@ class App < Sinatra::Base
   end
 
   post '/links/:id/remove' do |id|
-    Link.get(id).destroy!
+    Link.removeLink(id, @user.id, self)
     redirect back
   end
 end

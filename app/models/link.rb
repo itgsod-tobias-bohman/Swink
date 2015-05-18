@@ -21,4 +21,13 @@ class Link
                 secret: @secret,
                 user_id: user.id)
   end
+
+  def self.removeLink(id, user, app)
+    link = Link.get(id)
+    if link.user_id == user
+      link.destroy!
+    else
+      app.redirect '/404'
+    end
+  end
 end
