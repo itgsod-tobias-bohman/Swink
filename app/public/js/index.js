@@ -10,6 +10,7 @@
   });
 
   addLink = function(form, event) {
+    $('#submit-button').addClass('m-progress');
     return $.ajax({
       url: form.attr('action'),
       method: form.attr('method'),
@@ -19,7 +20,8 @@
         alertify.success('Link Added');
         $('#link').val('');
         $('#tag').val('');
-        return $('#secret').attr('checked', false);
+        $('#secret').attr('checked', false);
+        return $('#submit-button').removeClass('m-progress');
       }
     }, event.preventDefault());
   };
