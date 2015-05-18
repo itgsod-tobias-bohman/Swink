@@ -17,9 +17,6 @@
       success: function() {
         var n;
         console.log('Added');
-        n = noty({
-          text: 'Link added!'
-        });
         $('#link').val('');
         $('#tag').val('');
         return $('#secret').attr('checked', false);
