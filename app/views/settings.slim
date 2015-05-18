@@ -1,0 +1,42 @@
+.container
+  .row.vertical-center-row
+    .col-md-6
+    .col-md-6
+      a href='/links' style='display: inline-block; margin-right: 4px;' class='btn btn-primary' title='Your Links'
+        i class='fa fa-link'
+      form style='display: inline-block' action='/logout' method='post'
+        button class='btn btn-danger logout' type='submit' title='Logout'
+          i class='fa fa-sign-out'
+    h1 id='swink' Swink
+    a href="/"
+      i.fa.fa-arrow-left
+      |  Back to front page
+    ul.ds-btn
+      li
+        a.btn.btn-lg.btn-default href="#"
+          i.glyphicon.glyphicon-envelope.pull-left
+          span
+            | Change Email
+            br
+            small Fancy
+      li
+        a.btn.btn-lg.btn-primary href="#"
+          i.glyphicon.glyphicon-lock.pull-left
+          span
+            | Change Password
+            br
+            small Not the same...
+      li
+        a.btn.btn-lg.btn-success href="#"
+          i.glyphicon.glyphicon-heart.pull-left
+          span
+            | Notifications?
+            br
+            small Email only though
+      li
+        a.btn.btn-lg.btn-danger href="#"
+          i.glyphicon.glyphicon-warning-sign.pull-left
+          span
+            | Delete Account
+            br
+            small Goodbye my lover!
