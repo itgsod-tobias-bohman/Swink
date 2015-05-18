@@ -12,7 +12,7 @@ removeLink = (form, event) ->
     data: form.serialize(),
     success: ->
       form.parent().parent().remove()
-      n = noty(text: 'Link removed!')
+      alertify.error('Link Removed');
     event.preventDefault()
 
 getLinks = ->

@@ -16,6 +16,7 @@
       data: form.serialize(),
       success: function() {
         console.log('Added');
+        alertify.success('Link Added');
         $('#link').val('');
         $('#tag').val('');
         return $('#secret').attr('checked', false);

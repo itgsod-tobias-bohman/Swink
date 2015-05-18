@@ -16,11 +16,8 @@
       method: form.attr('method'),
       data: form.serialize(),
       success: function() {
-        var n;
         form.parent().parent().remove();
-        return n = noty({
-          text: 'Link removed!'
-        });
+        return alertify.error('Link Removed');
       }
     }, event.preventDefault());
   };

@@ -11,7 +11,7 @@ addLink = (form, event) ->
     data: form.serialize(),
     success: ->
       console.log('Added')
-      n = noty(text: 'Link added!')
+      alertify.success('Link Added')
       $('#link').val ''
       $('#tag').val ''
       $('#secret').attr 'checked', false
