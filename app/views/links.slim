@@ -1,1 +1,44 @@
+.container
+  .row.vertical-center-row
+    .col-md-6
+    .col-md-6
+      a.btn.btn-default href="/settings" style=("display: inline-block") title="Settings"
+        i.fa.fa-cog
+      form action="/logout" method="post" style=("display: inline-block")
+        button.btn.btn-danger.logout title="Logout" type="submit"
+          i.fa.fa-sign-out
+    h1#swink Swink
+    a href="/"
+      i.fa.fa-arrow-left
+      | Back to front page
+    h2 Saved Links
+    #links
+      input.fuzzy-search type="text"
+      table.table
+        thead
+          tr
+            th Title
+            th Tag
+            th Share
+            th
+        tbody
+          - for link in @links
+            tr
+              td.table-title
+                a href="#{link.link}" style=("display: inline-block") #{link.title}
+              td.table-tag
+                p style=("display: inline-block") #{link.tag}
+              td.table-share
+                a.btn.btn-social-icon.btn-flickr alt=("share on swink") href="https://www.facebook.com/sharer/sharer.php?u=#{link.link}" style=("display: inline-block") target="_blank" title=("Share on Swink")
+                  i.fa.fa-link
+                a.btn.btn-social-icon.btn-facebook alt=("share to facebook") href="https://www.facebook.com/sharer/sharer.php?u=#{link.link}" onclick="window.open(this.href, 'mywin', 'left=20,top=20,width=500,height=250,toolbar=1,resizable=0'); return false;" style=("display: inline-block") title=("Share to Facebook")
+                  i.fa.fa-facebook
+                a.btn.btn-social-icon.btn-reddit alt=("share to reddit") href="http://www.reddit.com/submit?url=#{link.link}&title=#{link.title}" style=("display: inline-block") target="_blank" title=("Share to Reddit")
+                  i.fa.fa-reddit
+                a.btn.btn-social-icon.btn-twitter alt=("share to twitter") href="https://twitter.com/intent/tweet?text={{link}}&url=myurl" onclick="window.open(this.href, 'mywin', 'left=20,top=20,width=500,height=250,toolbar=1,resizable=0'); return false;" style=("display: inline-block") title=("Share to Twitter")
+                  i.fa.fa-twitter
+              td.table-remove
+                form.remover action="links/#{link.id}/remove" method="post" style=("display: inline-block")
+                  button.btn.btn-social-icon.btn-pinterest title=("Remove Link") type="submit"
+                    i.fa.fa-unlink
 script src='./js/links.js/'

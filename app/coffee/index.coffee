@@ -5,7 +5,7 @@ $ ->
     addLink($(this), event)
 
 addLink = (form, event) ->
-  $('#submit-button').addClass('m-progress')
+  $('#submit-button').addClass('m-progress').prop('disabled', true)
   $.ajax
     url: form.attr('action'),
     method: form.attr('method'),
@@ -16,5 +16,5 @@ addLink = (form, event) ->
       $('#link').val ''
       $('#tag').val ''
       $('#secret').attr 'checked', false
-      $('#submit-button').removeClass('m-progress')
+      $('#submit-button').removeClass('m-progress').prop('disabled', false)
     event.preventDefault()

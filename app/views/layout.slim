@@ -29,57 +29,12 @@ html class='full'
     meta content="#ffffff" name="theme-color"
     script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'
     script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js'
-    script src='https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/3.0.1/handlebars.min.js'
     script src='http://cdn.jsdelivr.net/alertifyjs/1.4.1/alertify.min.js'
     link rel='stylesheet' href='http://cdn.jsdelivr.net/alertifyjs/1.4.1/css/alertify.min.css'
     link rel='stylesheet' href='http://cdn.jsdelivr.net/alertifyjs/1.4.1/css/themes/bootstrap.min.css'
     script type='text/javascript' src='./js/pace.min.js'
     script type='text/javascript' src='./js/offline.min.js'
-    script src='https://cdnjs.cloudflare.com/ajax/libs/list.js/1.1.1/list.min.js'
-    script src='./js/script.js/'
-
-    script id='links-template' type='text/x-handlebars-template'
-      |
-        <div class="container">
-          <div class="row vertical-center-row">
-            <div class="col-md-6"></div>
-            <div class="col-md-6">
-              <a href='/settings' style='display: inline-block' class='btn btn-default' title='Settings'>
-                <i class='fa fa-cog'></i></a>
-              <form style='display: inline-block' action='/logout' method='post'>
-                <button class='btn btn-danger logout' type='submit' title='Logout'>
-                  <i class='fa fa-sign-out'></i></button></form>
-            </div>
-            <h1 id="swink">Swink</h1>
-            <a href="/"><i class="fa fa-arrow-left"></i> Back to front page</a>
-            <h2>Saved Links</h2>
-            <div id="links">
-              <input class="search input-text" placeholder="Search" />
-              <button class="sort input-text" data-sort="table-tag">Sort by Tag</button>
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th>Title</th>
-                    <th>Tag</th>
-                    <th>Share</th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody class="list">
-                {{#each this}}
-                  <tr>
-                    <td class="table-title"><a style="display: inline-block" href="{{link}}">{{title}}</a></td>
-                    <td class="table-tag"><p style="display: inline-block">{{tag}}</p></td>
-                    <td class="table-share">
-                      <a title="Share on Swink" alt="share on swink" class="btn btn-social-icon btn-flickr" style="display: inline-block" href="https://www.facebook.com/sharer/sharer.php?u={{link}}" target="_blank"><i class="fa fa-link"></i></a>
-                      <a title="Share to Facebook" alt="share to facebook" class="btn btn-social-icon btn-facebook" style="display: inline-block" href="https://www.facebook.com/sharer/sharer.php?u={{link}}" onclick="window.open(this.href, 'mywin', 'left=20,top=20,width=500,height=250,toolbar=1,resizable=0'); return false;"><i class="fa fa-facebook"></i></a>
-                      <a title="Share to Reddit" alt="share to reddit" class="btn btn-social-icon btn-reddit" style="display: inline-block" href="http://www.reddit.com/submit?url={{link}}&title={{title}}" target="_blank"><i class="fa fa-reddit"></i></a>
-                      <a title="Share to Twitter" alt="share to twitter" class="btn btn-social-icon btn-twitter" style="display: inline-block" href="https://twitter.com/intent/tweet?text={{link}}&url=myurl" onclick="window.open(this.href, 'mywin', 'left=20,top=20,width=500,height=250,toolbar=1,resizable=0'); return false;"><i class="fa fa-twitter"></i></a>
-                    </td>
-                    <td class="table-remove"><form style="display: inline-block" class="remover" action="links/{{id}}/remove" method="post"><button title="Remove Link" class="btn btn-social-icon btn-pinterest" type="submit"><i class="fa fa-unlink"></i></button></form></td>
-                  </tr>
-                {{/each}}
-          </div>
-        </div>
+    script src='./js/list.min.js'
+    script src='./js/list.fuzzysearch.min.js'
   body
     == yield

@@ -54,11 +54,8 @@ class App < Sinatra::Base
   #################
   get '/links' do
     redirect '/' if !session[:user]
+    @links = Link.all(:user_id => @user.id)
     slim :links
-  end
-
-  get '/links.json' do
-    Link.all(:user_id => @user.id).to_json
   end
 
   post '/links/new' do

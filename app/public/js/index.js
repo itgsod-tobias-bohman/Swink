@@ -10,7 +10,7 @@
   });
 
   addLink = function(form, event) {
-    $('#submit-button').addClass('m-progress');
+    $('#submit-button').addClass('m-progress').prop('disabled', true);
     return $.ajax({
       url: form.attr('action'),
       method: form.attr('method'),
@@ -21,7 +21,7 @@
         $('#link').val('');
         $('#tag').val('');
         $('#secret').attr('checked', false);
-        return $('#submit-button').removeClass('m-progress');
+        return $('#submit-button').removeClass('m-progress').prop('disabled', false);
       }
     }, event.preventDefault());
   };
