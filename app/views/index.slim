@@ -3,12 +3,12 @@
     .row.vertical-center-row
       .col-md-6
       .col-md-6
-        a href='/links' style='display: inline-block; margin-right: 4px;' class='btn btn-primary' title='Your Links'
+        a id='links-button' href='/links' style='display: inline-block; margin-right: 4px;' class='btn btn-primary' title='Your Links'
           i class='fa fa-link'
-        a href='/settings' style='display: inline-block' class='btn btn-default' title='Settings'
+        a id='settings-button' href='/settings' style='display: inline-block' class='btn btn-default' title='Settings'
           i class='fa fa-cog'
         form style='display: inline-block' action='/logout' method='post'
-          button class='btn btn-danger logout' type='submit' title='Logout'
+          button id='logout-button' class='btn btn-danger logout' type='submit' title='Logout'
             i class='fa fa-sign-out'
       h1 id='swink' Swink
       .col-md-6.col-md-offset-3

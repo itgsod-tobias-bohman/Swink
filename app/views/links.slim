@@ -2,10 +2,10 @@
   .row.vertical-center-row
     .col-md-6
     .col-md-6
-      a.btn.btn-default href="/settings" style=("display: inline-block") title="Settings"
+      a.btn.btn-default id='settings-button' href="/settings" style=("display: inline-block") title="Settings"
         i.fa.fa-cog
       form action="/logout" method="post" style=("display: inline-block")
-        button.btn.btn-danger.logout title="Logout" type="submit"
+        button.btn.btn-danger.logout id='logout-button' title="Logout" type="submit"
           i.fa.fa-sign-out
     h1#swink
       a href='/' Swink
