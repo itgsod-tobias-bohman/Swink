@@ -13,7 +13,7 @@
       | Back to front page
     h2 Saved Links
     #links
-      input.fuzzy-search type="text"
+      input.fuzzy-search.input-text.form-control placeholder="Search By Tag" type="text"
       table.table
         thead
           tr
@@ -21,13 +21,13 @@
             th Tag
             th Share
             th
-        tbody
+        tbody.list
           - for link in @links
             tr
               td.table-title
                 a href="#{link.link}" style=("display: inline-block") #{link.title}
               td.table-tag
-                p style=("display: inline-block") #{link.tag}
+                | #{link.tag}
               td.table-share
                 a.btn.btn-social-icon.btn-flickr alt=("share on swink") href="https://www.facebook.com/sharer/sharer.php?u=#{link.link}" style=("display: inline-block") target="_blank" title=("Share on Swink")
                   i.fa.fa-link
@@ -41,4 +41,5 @@
                 form.remover action="links/#{link.id}/remove" method="post" style=("display: inline-block")
                   button.btn.btn-social-icon.btn-pinterest title=("Remove Link") type="submit"
                     i.fa.fa-unlink
-script src='./js/links.js/'
+script src='./js/links.js'
+script src='./js/script.js'
