@@ -11,6 +11,8 @@
           button id='logout-button' class='btn btn-danger logout' type='submit' title='Logout'
             i class='fa fa-sign-out'
       h1 id='swink' Swink
+      - if @welcome
+        p Welcome to Swink, #{@user.username}!
       .col-md-6.col-md-offset-3
         form class='adder' action='/links/new' method='post'
           input class='form-control input-text' type='url' name='link' id='link' placeholder='Paste link here...' required=''
@@ -42,6 +44,8 @@
                     input#username.form-control name='username' placeholder='Username' tabindex='1' type='text' value='' required=''
                   .form-group
                     input#password.form-control name='password' placeholder='Password' tabindex='2' type='password' required=''
+                  - if @incorrect
+                    p class='warning-incorrect' Incorrect Username or Password
                   .form-group
                     .row
                       .col-sm-6.col-sm-offset-3

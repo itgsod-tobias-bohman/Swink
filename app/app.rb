@@ -12,6 +12,26 @@ class App < Sinatra::Base
   end
 
   get '/' do
+    @incorrect = false
+    @welcome = false
+    if session[:user]
+      @loggedout = false
+    else
+      @loggedout = true
+    end
+    slim :index
+  end
+
+  get '/inc' do
+    @incorrect = true
+    @welcome = false
+    @loggedout = true
+    slim :index
+  end
+
+  get '/wel' do
+    @incorrect = false
+    @welcome = true
     if session[:user]
       @loggedout = false
     else

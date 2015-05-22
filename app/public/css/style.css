@@ -207,6 +207,10 @@ a:hover {
 a:active {
     text-decoration: none;
 }
+
+.warning-incorrect {
+  color: red;
+}
 /*****************
 ** PAGE LOADING **
 *****************/
