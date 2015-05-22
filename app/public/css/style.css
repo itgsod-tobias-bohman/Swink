@@ -193,21 +193,33 @@ body {
   width: 50%;
 }
 a:link {
+    color: #fff;
     text-decoration: none;
 }
 
 a:visited {
+    color: #fff;
     text-decoration: none;
 }
 
 a:hover {
+    color: #000;
     text-decoration: none;
 }
 
 a:active {
+    color: #000;
     text-decoration: none;
 }
-
+#share-reddit{
+  color: #000;
+}
+#settings-button{
+  color: #000;
+}
+#change-email-button{
+  color: #000;
+}
 .warning-incorrect {
   color: red;
 }

@@ -110,4 +110,13 @@ describe('Start page', :type => :feature) do
       expect( page ).to have_content 'Twitter'
     end
   end
+
+  it 'lets a user remove a saved link', :driver => :selenium do
+    fill_in('username', :with => 'user')
+    fill_in('password', :with => 'test_password')
+    click_on('Log In')
+    click_link('links-button')
+    click_on('remover')
+    expect( page ).to have_no_content 'Search Engine'
+  end
 end

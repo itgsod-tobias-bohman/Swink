@@ -63,10 +63,12 @@ class App < Sinatra::Base
   end
 
   get '/settings' do
+    redirect '/' if !session[:user]
     slim :settings
   end
 
   get '/forgot_password' do
+    redirect '/' if session[:user]
     slim :forgotpassword
   end
   #################
