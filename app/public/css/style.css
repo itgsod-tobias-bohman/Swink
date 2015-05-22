@@ -116,15 +116,6 @@ body {
   background-color: #53A3CD;
   border-color: #53A3CD;
 }
-.forgot-password {
-  text-decoration: underline;
-  color: #888;
-}
-.forgot-password:hover,
-.forgot-password:focus {
-  text-decoration: underline;
-  color: #666;
-}
 
 .btn-register {
   background-color: #1CB94E;
@@ -222,6 +213,18 @@ a:active {
 }
 .warning-incorrect {
   color: red;
+}
+#forgot-password {
+  color: #888;
+}
+.forgot-password {
+  text-decoration: underline;
+  color: #888;
+}
+.forgot-password:hover,
+.forgot-password:focus {
+  text-decoration: underline;
+  color: #666;
 }
 /*****************
 ** PAGE LOADING **
