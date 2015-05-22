@@ -52,6 +52,15 @@ describe('Start page', :type => :feature) do
     expect( page ).to have_no_content 'Video Player'
   end
 
+  it 'lets a user remove a saved link', :driver => :selenium do
+    fill_in('username', :with => 'user')
+    fill_in('password', :with => 'test_password')
+    click_on('Log In')
+    click_link('links-button')
+    click_on('remover')
+    expect( page ).to have_no_content 'Search Engine'
+  end
+
   it 'lets a user register when inputting correct credentials', :driver => :selenium do
     click_link('Register')
     fill_in('username', :with => 'test_user')
@@ -109,14 +118,5 @@ describe('Start page', :type => :feature) do
     within_window twitter_window do
       expect( page ).to have_content 'Twitter'
     end
-  end
-
-  it 'lets a user remove a saved link', :driver => :selenium do
-    fill_in('username', :with => 'user')
-    fill_in('password', :with => 'test_password')
-    click_on('Log In')
-    click_link('links-button')
-    click_on('remover')
-    expect( page ).to have_no_content 'Search Engine'
   end
 end
