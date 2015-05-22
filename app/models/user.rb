@@ -41,10 +41,24 @@ class User
     if user
       password = SecureRandom.urlsafe_base64
       user.update(:password => password)
-      Pony.mail :to => 'noreply@swink.io',
-            :from => user.email,
-            :subject => 'Your Swink password has been reset!'
-            :body => "Your new password is: #{password}"
+      Pony.mail({
+        :to => user.email,
+        :subject => 'Your Swink password has been reset!',
+        :body => "Your new password is: #{password} (change this the next time you log in)",
+        :via => :smtp,
+        :via_options => {
+          :address              => 'smtp.gmail.com',
+          :port                 => '587',
+          :enable_starttls_auto => true,
+          :user_name            => 'swinknoreply@gmail.com',
+          :password             => 'swinkyio1337',
+          :authentication       => :plain, # :plain, :login, :cram_md5, no auth by default
+          :domain               => "localhost.localdomain" # the HELO domain provided by the client to the server
+        }
+      })
+      app.redirect('/')
+    else
+      app.redirect('/forgot_password_inv')
     end
   end
 end

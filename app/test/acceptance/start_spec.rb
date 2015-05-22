@@ -51,6 +51,13 @@ describe('Start page', :type => :feature) do
     expect( page ).to have_content 'Incorrect Username or Password'
   end
 
+  it 'lets a user reset their password using their email', :driver => :selenium do
+    click_link('forgot-password')
+    fill_in('email', :with => 'swinknoreply@gmail')
+    click_on('send-password')
+    expect( page ).to have_content 'Swink'
+  end
+
   it 'lets a user add a link with a proper link & tag', :driver => :selenium do
     fill_in('username', :with => 'user')
     fill_in('password', :with => 'test_password')

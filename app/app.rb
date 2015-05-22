@@ -68,6 +68,13 @@ class App < Sinatra::Base
   end
 
   get '/forgot_password' do
+    @invalidemail = false
+    redirect '/' if session[:user]
+    slim :forgotpassword
+  end
+
+  get '/forgot_password_inv' do
+    @invalidemail = true
     redirect '/' if session[:user]
     slim :forgotpassword
   end

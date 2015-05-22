@@ -7,6 +7,7 @@ class Seeder
 
   def self.user
     User.create(username: 'user',
+                email: 'swinknoreply@gmail',
                 password: 'test_password')
   end
 
