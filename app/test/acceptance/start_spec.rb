@@ -62,7 +62,7 @@ describe('Start page', :type => :feature) do
     expect( page ).to have_content 'Welcome to Swink, test_user'
   end
 
-  it 'denies a user from registering when inputting incorrect credentials' , :driver => :selenium do
+  it 'denies a user from registering when inputting incorrect credentials', :driver => :selenium do
     click_link('Register')
     fill_in('username', :with => 'anon')
     fill_in('email', :with => '')
@@ -72,4 +72,42 @@ describe('Start page', :type => :feature) do
     expect( page ).to have_content 'Incorrect Username or Password'
   end
 
+  it 'lets a user share a link to facebook', :driver => :selenium do
+    fill_in('username', :with => 'user')
+    fill_in('password', :with => 'test_password')
+    click_on('Log In')
+    click_link('links-button')
+    facebook_window = window_opened_by do
+      click_link('share-facebook')
+    end
+    within_window facebook_window do
+      expect( page ).to have_content 'Facebook'
+    end
+  end
+
+  it 'lets a user share a link to reddit', :driver => :selenium do
+    fill_in('username', :with => 'user')
+    fill_in('password', :with => 'test_password')
+    click_on('Log In')
+    click_link('links-button')
+    reddit_window = window_opened_by do
+      click_link('share-reddit')
+    end
+    within_window reddit_window do
+      expect( page ).to have_content 'reddit'
+    end
+  end
+
+  it 'lets a user share a link to twitter', :driver => :selenium do
+    fill_in('username', :with => 'user')
+    fill_in('password', :with => 'test_password')
+    click_on('Log In')
+    click_link('links-button')
+    twitter_window = window_opened_by do
+      click_link('share-twitter')
+    end
+    within_window twitter_window do
+      expect( page ).to have_content 'Twitter'
+    end
+  end
 end
