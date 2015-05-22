@@ -31,6 +31,26 @@ describe('Start page', :type => :feature) do
     expect( page ).to have_content 'Incorrect Username or Password'
   end
 
+  it 'lets a user register when inputting correct credentials', :driver => :selenium do
+    click_link('Register')
+    fill_in('username', :with => 'test_user')
+    fill_in('email', :with => 'test_user@test.com')
+    fill_in('password', :with => 'test_password')
+    fill_in('confirm-password', :with => 'test_password')
+    click_on('Register Now')
+    expect( page ).to have_content 'Welcome to Swink, test_user'
+  end
+
+  it 'denies a user from registering when inputting incorrect credentials', :driver => :selenium do
+    click_link('Register')
+    fill_in('username', :with => 'anon')
+    fill_in('email', :with => '')
+    fill_in('password', :with => 'test_password')
+    fill_in('confirm-password', :with => 'password_test')
+    click_on('Register Now')
+    expect( page ).to have_content 'Incorrect Username or Password'
+  end
+
   it 'lets a user add a link with a proper link & tag', :driver => :selenium do
     fill_in('username', :with => 'user')
     fill_in('password', :with => 'test_password')
@@ -61,24 +81,17 @@ describe('Start page', :type => :feature) do
     expect( page ).to have_no_content 'Search Engine'
   end
 
-  it 'lets a user register when inputting correct credentials', :driver => :selenium do
-    click_link('Register')
-    fill_in('username', :with => 'test_user')
-    fill_in('email', :with => 'test_user@test.com')
+  it 'lets a user filter saved links', :driver => :selenium do
+    fill_in('username', :with => 'user')
     fill_in('password', :with => 'test_password')
-    fill_in('confirm-password', :with => 'test_password')
-    click_on('Register Now')
-    expect( page ).to have_content 'Welcome to Swink, test_user'
-  end
-
-  it 'denies a user from registering when inputting incorrect credentials', :driver => :selenium do
-    click_link('Register')
-    fill_in('username', :with => 'anon')
-    fill_in('email', :with => '')
-    fill_in('password', :with => 'test_password')
-    fill_in('confirm-password', :with => 'password_test')
-    click_on('Register Now')
-    expect( page ).to have_content 'Incorrect Username or Password'
+    click_on('Log In')
+    fill_in('link', :with => 'https://www.youtube.com/')
+    fill_in('tag', :with => 'Video Player')
+    click_button('submit-button')
+    click_link('links-button')
+    fill_in('tag-search', :with => 'Search Engine')
+    expect( page ).to have_content 'Search Engine'
+    expect( page ).to have_no_content 'Video Player'
   end
 
   it 'lets a user share a link to facebook', :driver => :selenium do
@@ -119,4 +132,5 @@ describe('Start page', :type => :feature) do
       expect( page ).to have_content 'Twitter'
     end
   end
+
 end
