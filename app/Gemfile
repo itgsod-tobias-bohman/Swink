@@ -15,6 +15,7 @@ gem 'rerun'
 gem 'racksh'
 gem 'metainspector'
 gem 'thin'
+gem 'pony'
 
 # Used during local development (on your own machine)
 group :development do

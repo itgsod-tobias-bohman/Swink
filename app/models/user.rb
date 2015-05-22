@@ -35,4 +35,16 @@ class User
       app.redirect '/inc'
     end
   end
+
+  def self.forgot_password(params, app)
+    user = User.first(email: params['email'])
+    if user
+      password = SecureRandom.urlsafe_base64
+      user.update(:password => password)
+      Pony.mail :to => 'noreply@swink.io',
+            :from => user.email,
+            :subject => 'Your Swink password has been reset!'
+            :body => "Your new password is: #{password}"
+    end
+  end
 end

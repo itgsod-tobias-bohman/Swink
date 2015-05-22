@@ -71,6 +71,10 @@ class App < Sinatra::Base
     redirect '/' if session[:user]
     slim :forgotpassword
   end
+
+  post '/forgot_password' do
+    User.forgot_password(params, self)
+  end
   #################
   # LINK SPECIFIC #
   #################
