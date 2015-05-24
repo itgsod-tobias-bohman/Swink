@@ -226,6 +226,9 @@ a:active {
   text-decoration: underline;
   color: #666;
 }
+.modal {
+  color: #000;
+}
 /*****************
 ** PAGE LOADING **
 *****************/
