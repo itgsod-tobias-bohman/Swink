@@ -1,3 +1,51 @@
+#emailModal.modal.fade aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1"
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close aria-label="Close" data-dismiss="modal" type="button"
+          span aria-hidden="true"  &times;
+        h4#myModalLabel.modal-title Modal title
+      .modal-body
+        p content
+      .modal-footer
+        button.btn.btn-default data-dismiss="modal" type="button"  Close
+        button.btn.btn-primary type="button"  Save changes
+#passwordModal.modal.fade aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1"
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close aria-label="Close" data-dismiss="modal" type="button"
+          span aria-hidden="true"  &times;
+        h4#myModalLabel.modal-title Modal title
+      .modal-body
+        p content
+      .modal-footer
+        button.btn.btn-default data-dismiss="modal" type="button"  Close
+        button.btn.btn-primary type="button"  Save changes
+#notificationsModal.modal.fade aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1"
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close aria-label="Close" data-dismiss="modal" type="button"
+          span aria-hidden="true"  &times;
+        h4#myModalLabel.modal-title Modal title
+      .modal-body
+        p content
+      .modal-footer
+        button.btn.btn-default data-dismiss="modal" type="button"  Close
+        button.btn.btn-primary type="button"  Save changes
+#deleteModal.modal.fade aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1"
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close aria-label="Close" data-dismiss="modal" type="button"
+          span aria-hidden="true"  &times;
+        h4#myModalLabel.modal-title Modal title
+      .modal-body
+        p content
+      .modal-footer
+        button.btn.btn-default data-dismiss="modal" type="button"  Close
+        button.btn.btn-primary type="button"  Save changes
 .container
   .row.vertical-center-row
     .col-md-6
@@ -11,28 +59,28 @@
       a href='/' Swink
     ul.ds-btn
       li
-        a.btn.btn-lg.btn-default id="change-email-button" href="#"
+        a.btn.btn-lg.btn-default id="change-email-button" href="#" data-target="#emailModal" data-toggle="modal" type="button"
           i.glyphicon.glyphicon-envelope.pull-left
           span
             | Change Email
             br
             small Fancy
       li
-        a.btn.btn-lg.btn-primary href="#"
+        a.btn.btn-lg.btn-primary href="#" data-target="#passwordModal" data-toggle="modal" type="button"
           i.glyphicon.glyphicon-lock.pull-left
           span
             | Change Password
             br
             small Not the same...
       li
-        a.btn.btn-lg.btn-success href="#"
+        a.btn.btn-lg.btn-success href="#" data-target="#notificationsModal" data-toggle="modal" type="button"
           i.glyphicon.glyphicon-heart.pull-left
           span
             | Notifications?
             br
             small Email only though
       li
-        a.btn.btn-lg.btn-danger href="#"
+        a.btn.btn-lg.btn-danger href="#" data-target="#deleteModal" data-toggle="modal" type="button"
           i.glyphicon.glyphicon-warning-sign.pull-left
           span
             | Delete Account
