@@ -5,6 +5,7 @@ class User
   property :username, String, required: true, unique: true
   property :email, String, required: false, unique: false
   property :password, BCryptHash, required: true
+  property :notifications, Boolean, default: false
 
   has n, :links
 
@@ -59,6 +60,36 @@ class User
       app.redirect('/')
     else
       app.redirect('/forgot_password_inv')
+    end
+
+    def self.change_email(user, params, app)
+      if user.password == params['password'] && params['email'] == params['email-confirmation']
+        user.update(:email => params['email'])
+      end
+    end
+
+    def self.change_password(user, params, app)
+      if user.password == params['password-old'] && params['password'] == params['password-confirmation']
+        user.update(:password => params['password'])
+      end
+    end
+
+    def self.change_notifications(user, params, app)
+      if params['notifications'] == 'yes'
+        user.update(:notifications => true)
+      else
+        user.update(:notifications => false)
+      end
+    end
+
+    def self.delete_account(params, app)
+      user = User.first(username: params['username'])
+      if user && user.password == params['password']
+        links = Link.all(user_id == user.id)
+        links.destroy
+        user.destroy
+      end
+      app.redirect('/')
     end
   end
 end

@@ -62,6 +62,25 @@ class App < Sinatra::Base
     redirect '/'
   end
 
+  post '/change_email' do
+    User.change_email(@user, params, self)
+    redirect '/settings'
+  end
+
+  post '/change_password' do
+    User.change_email(@user, params, self)
+    redirect '/settings'
+  end
+
+  post '/change_notifications' do
+    User.change_email(@user, params, self)
+    redirect '/settings'
+  end
+
+  post '/delete_account' do
+    User.delete_account(params, self)
+  end
+
   get '/settings' do
     redirect '/' if !session[:user]
     slim :settings
