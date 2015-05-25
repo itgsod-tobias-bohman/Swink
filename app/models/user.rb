@@ -61,35 +61,38 @@ class User
     else
       app.redirect('/forgot_password_inv')
     end
+  end
 
-    def self.change_email(user, params, app)
-      if user.password == params['password'] && params['email'] == params['email-confirmation']
-        user.update(:email => params['email'])
-      end
+  def change_email(params, app)
+    if password == params['password'] && params['email'] == params['email-confirmation']
+      update(:email => params['email'])
     end
+  end
 
-    def self.change_password(user, params, app)
-      if user.password == params['password-old'] && params['password'] == params['password-confirmation']
-        user.update(:password => params['password'])
-      end
+  def change_password(params, app)
+    if password == params['password-old'] && params['password'] == params['password-confirmation']
+      update(:password => params['password'])
     end
+  end
 
-    def self.change_notifications(user, params, app)
-      if params['notifications'] == 'yes'
-        user.update(:notifications => true)
-      else
-        user.update(:notifications => false)
-      end
+  def change_notifications(params, app)
+    if params['notifications'] == 'yes'
+      update(:notifications => true)
+    else
+      update(:notifications => false)
     end
+  end
 
-    def self.delete_account(params, app)
-      user = User.first(username: params['username'])
-      if user && user.password == params['password']
-        links = Link.all(user_id == user.id)
-        links.destroy
-        user.destroy
-      end
-      app.redirect('/')
+  def delete_account(params, app)
+    if password == params['password']
+      Link.all(user: self).destroy
+      self.destroy
+      <<-DOC
+      links = Link.all(user_id == user.id)
+      links.destroy
+      user.destroy
+      DOC
     end
+    app.redirect('/')
   end
 end

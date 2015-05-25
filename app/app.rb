@@ -63,22 +63,22 @@ class App < Sinatra::Base
   end
 
   post '/change_email' do
-    User.change_email(@user, params, self)
+    @user.change_email(params, self)
     redirect '/settings'
   end
 
   post '/change_password' do
-    User.change_email(@user, params, self)
+    @user.change_password(params, self)
     redirect '/settings'
   end
 
   post '/change_notifications' do
-    User.change_email(@user, params, self)
+    @user.change_notifications(params, self)
     redirect '/settings'
   end
 
   post '/delete_account' do
-    User.delete_account(params, self)
+    @user.delete_account(params, self)
   end
 
   get '/settings' do
