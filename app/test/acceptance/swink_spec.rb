@@ -1,8 +1,6 @@
 require_relative 'acceptance_helper'
 require_relative '../../db/seed'
 
-#Capybara.javascript_driver = :webkit
-
 describe('Swink', :type => :feature) do
 
   before do
@@ -10,7 +8,7 @@ describe('Swink', :type => :feature) do
     Seeder.seed!
     visit '/'
   end
-<<-DOC
+
   it 'responds with successful status' do
     expect( page.status_code ).to eq 200
   end
@@ -141,7 +139,6 @@ describe('Swink', :type => :feature) do
       expect( page ).to have_content 'Twitter'
     end
   end
-DOC
 
   it 'lets a user change his/hers current password', :driver => :selenium do
     fill_in('username', :with => 'user')
