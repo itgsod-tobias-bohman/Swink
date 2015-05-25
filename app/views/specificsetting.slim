@@ -1,0 +1,52 @@
+.container
+  .row.vertical-center-row
+    .col-md-6
+    .col-md-6
+      a id='links-button' href='/links' style='display: inline-block; margin-right: 4px;' class='btn btn-primary' title='Your Links'
+        i class='fa fa-link'
+      a id='settings-button' href='/settings' style='display: inline-block' class='btn btn-default' title='Settings'
+        i class='fa fa-cog'
+      form style='display: inline-block' action='/logout' method='post'
+        button id='logout-button' class='btn btn-danger logout' type='submit' title='Logout'
+          i class='fa fa-sign-out'
+    h1#swink
+      a href='/' Swink
+    - if @setting == 'email'
+      form#email-form action='/change_email' method='post' role='form' style=('display: block;')
+        .form-group
+          input#emailNew.form-control name='email' placeholder='New Email' tabindex='1' type='email' value='' required=''
+        .form-group
+          input#emailNewConfirm.form-control name='email-confirmation' placeholder='Confirm Email' tabindex='1' type='email' value='' required=''
+        .form-group
+          input#password.form-control name='password' placeholder='Password' tabindex='2' type='password' required=''
+        .form-group
+          input#email-submit.form-control.btn.btn-success.btn-email name='email-submit' type='submit' value=('Change Email')
+    - if @setting == 'password'
+      form#password-form action='/change_password' method='post' role='form' style=('display: block;')
+          .form-group
+            input#password.form-control name='password-old' placeholder='Old Password' tabindex='1' type='password' value='' required=''
+          .form-group
+            input#password.form-control name='password' placeholder='New Password' tabindex='1' type='password' value='' required=''
+          .form-group
+            input#password.form-control name='password-confirmation' placeholder='Confirm Password' tabindex='2' type='password' required=''
+          .form-group
+            input#password-submit.form-control.btn.btn-success.btn-email name='password-submit' type='submit' value=('Change Password')
+    - if @setting == 'notifications'
+      p Do you want email notifications with updates?
+        form#notifications-form action='/change_notifications' method='post' role='form' style=('display: block;')
+          .form-group
+            input name="notifications" type="radio" value="yes"
+              |   Yes
+            input name="notifications" type="radio" value="no"
+              |   No
+          .form-group
+            input#notification-submit.form-control.btn.btn-success.btn-notifications name='notifications-submit' type='submit' value=('Save Changes')
+    - if @setting == 'delete'
+       p class='warning-incorrect' Deleting your account will result in losing all your saved links and make you unable to ever login again, make sure you are sure before deleting your account.
+        form#delete-form action='/delete_account' method='post' role='form' style=('display: block;')
+          .form-group
+            input#delete.form-control name='username' placeholder='Username' tabindex='1' type='text' value='' required=''
+          .form-group
+            input#delete.form-control name='password' placeholder='Password' tabindex='1' type='password' value='' required=''
+          .form-group
+            input#delete-submit.form-control.btn.btn-danger.btn-delete name='password-submit' type='submit' value=('Delete Account')

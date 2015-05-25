@@ -87,11 +87,6 @@ class User
     if password == params['password']
       Link.all(user: self).destroy
       self.destroy
-      <<-DOC
-      links = Link.all(user_id == user.id)
-      links.destroy
-      user.destroy
-      DOC
     end
     app.redirect('/')
   end

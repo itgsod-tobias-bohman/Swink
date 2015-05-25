@@ -39,5 +39,6 @@ group :test do
   gem 'rspec' # Use rspec to write tests
   gem 'capybara' # Use capybara to simulate a web browser (no javascript)
   gem 'selenium-webdriver' # Use selenium to programmatically control a web browser (javascript capable)
+  gem 'capybara-webkit'
 
 end

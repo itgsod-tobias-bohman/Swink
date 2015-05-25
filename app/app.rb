@@ -86,6 +86,30 @@ class App < Sinatra::Base
     slim :settings
   end
 
+  get '/settings/change_email' do
+    redirect '/' if !session[:user]
+    @setting = 'email'
+    slim :specificsetting
+  end
+
+  get '/settings/change_password' do
+    redirect '/' if !session[:user]
+    @setting = 'password'
+    slim :specificsetting
+  end
+
+  get '/settings/change_notifications' do
+    redirect '/' if !session[:user]
+    @setting = 'notifications'
+    slim :specificsetting
+  end
+
+  get '/settings/delete_account' do
+    redirect '/' if !session[:user]
+    @setting = 'delete'
+    slim :specificsetting
+  end
+
   get '/forgot_password' do
     @invalidemail = false
     redirect '/' if session[:user]

@@ -11,6 +11,8 @@ Bundler.require
 
 # Load the environment
 require_relative '../config/environment'
+require 'capybara/rspec'
+require 'capybara/webkit'
 
 RSpec.configure do |config|
   # Use color in STDOUT
@@ -20,4 +22,6 @@ RSpec.configure do |config|
   config.tty = true
 
   config.formatter = :documentation #, :progress, :html, :textmate
+
+  #config.include(Capybara::Webkit::RspecMatchers, :type => :feature)
 end

@@ -1,6 +1,8 @@
 require_relative 'acceptance_helper'
 require_relative '../../db/seed'
 
+#Capybara.javascript_driver = :webkit
+
 describe('Start page', :type => :feature) do
 
   before do
@@ -139,5 +141,21 @@ describe('Start page', :type => :feature) do
       expect( page ).to have_content 'Twitter'
     end
   end
+
+<<-DOC
+  it 'lets a user change his/hers current password', js: true do
+    fill_in('username', :with => 'user')
+    fill_in('password', :with => 'test_password')
+    click_on('Log In')
+    click_link('settings-button')
+    click_link('change-email-button')
+
+    find('#emailModal')
+    fill_in(find('input#emailNew'), :with => 'test@testing.testing')
+    fill_in(email, :with => 'test@testing.testing')
+    fill_in('#emailNewConfirm', :with => 'test@testing.testing')
+    fill_in('password', :with => 'test_password')
+  end
+  DOC
 
 end
