@@ -64,13 +64,13 @@ class User
   end
 
   def change_email(params, app)
-    if password == params['password'] && params['email'] == params['email-confirmation']
+    if password == params['password'] && params['email-new'] == params['email-confirmation']
       update(:email => params['email'])
     end
   end
 
   def change_password(params, app)
-    if password == params['password-old'] && params['password'] == params['password-confirmation']
+    if password == params['password-old'] && params['password-new'] == params['password-confirmation']
       update(:password => params['password'])
     end
   end

@@ -8,7 +8,7 @@
       .modal-body
         form#email-form action='/change_email' method='post' role='form' style=('display: block;')
           .form-group
-            input#emailNew.form-control name='email' placeholder='New Email' tabindex='1' type='email' value='' required=''
+            input#emailNew.form-control name='email-new' placeholder='New Email' tabindex='1' type='email' value='' required=''
           .form-group
             input#emailNewConfirm.form-control name='email-confirmation' placeholder='Confirm Email' tabindex='1' type='email' value='' required=''
           .form-group
@@ -27,7 +27,7 @@
           .form-group
             input#password.form-control name='password-old' placeholder='Old Password' tabindex='1' type='password' value='' required=''
           .form-group
-            input#password.form-control name='password' placeholder='New Password' tabindex='1' type='password' value='' required=''
+            input#password.form-control name='password-new' placeholder='New Password' tabindex='1' type='password' value='' required=''
           .form-group
             input#password.form-control name='password-confirmation' placeholder='Confirm Password' tabindex='2' type='password' required=''
           .form-group
@@ -43,12 +43,12 @@
         p Do you want email notifications with updates?
         form#notifications-form action='/change_notifications' method='post' role='form' style=('display: block;')
           .form-group
-            input name="notifications" type="radio" value="yes"
+            input name="yes" type="radio" value="yes"
               |   Yes
-            input name="notifications" type="radio" value="no"
+            input name="no" type="radio" value="no"
               |   No
           .form-group
-            input#notification-submit.form-control.btn.btn-success.btn-notifications name='notifications-submit' type='submit' value=('Save Changes')
+            input#notification-submit.form-control.btn.btn-success.btn-notifications name='notification-submit' type='submit' value=('Save Changes')
 #deleteModal.modal.fade aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1"
   .modal-dialog
     .modal-content

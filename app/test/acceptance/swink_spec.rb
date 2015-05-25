@@ -3,14 +3,14 @@ require_relative '../../db/seed'
 
 #Capybara.javascript_driver = :webkit
 
-describe('Start page', :type => :feature) do
+describe('Swink', :type => :feature) do
 
   before do
     DataMapper.auto_migrate!
     Seeder.seed!
     visit '/'
   end
-
+<<-DOC
   it 'responds with successful status' do
     expect( page.status_code ).to eq 200
   end
@@ -141,21 +141,40 @@ describe('Start page', :type => :feature) do
       expect( page ).to have_content 'Twitter'
     end
   end
+DOC
 
-<<-DOC
-  it 'lets a user change his/hers current password', js: true do
+  it 'lets a user change his/hers current password', :driver => :selenium do
     fill_in('username', :with => 'user')
     fill_in('password', :with => 'test_password')
     click_on('Log In')
     click_link('settings-button')
-    click_link('change-email-button')
-
-    find('#emailModal')
-    fill_in(find('input#emailNew'), :with => 'test@testing.testing')
-    fill_in(email, :with => 'test@testing.testing')
-    fill_in('#emailNewConfirm', :with => 'test@testing.testing')
-    fill_in('password', :with => 'test_password')
+    visit '/settings/change_password'
+    fill_in('password-old', :with => 'test_password')
+    fill_in('password-new', :with => 'password_test')
+    fill_in('password-confirmation', :with => 'password_test')
+    click_on('password-submit')
   end
-  DOC
+
+  it 'lets a user change his/hers current email', :driver => :selenium do
+    fill_in('username', :with => 'user')
+    fill_in('password', :with => 'test_password')
+    click_on('Log In')
+    click_link('settings-button')
+    visit '/settings/change_email'
+    fill_in('email-new', :with => 'test@test.test')
+    fill_in('email-confirmation', :with => 'test@test.test')
+    fill_in('password', :with => 'test_password')
+    click_on('email-submit')
+  end
+
+  it 'lets a user change his/hers notifications', :driver => :selenium do
+    fill_in('username', :with => 'user')
+    fill_in('password', :with => 'test_password')
+    click_on('Log In')
+    click_link('settings-button')
+    visit '/settings/change_notifications'
+    choose('yes')
+    click_on('notification-submit')
+  end
 
 end
